@@ -25,13 +25,31 @@
     {{ partial "footer.html" . }}
   </main>
 
-  {{ if .HasShortcode "mermaid" }}
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
-    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
+  {{ if .Page.Store.Get "hasMermaid" }}
+  <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+      const settings = localStorage.getItem("theme") === "dark" ?
+          {
+              startOnLoad: true,
+              theme: "dark",
+              darkMode: true,
+              themeVariables: {
+                  tertiaryColor: "#dee3ed"
+              }
+          }
+          :
+          {
+              startOnLoad: true,
+              theme: "base",
+              darkMode: false,
+              themeVariables: {
+                  tertiaryColor: "#dee3ed"
+              }
+          }
+      ;
+      mermaid.initialize(settings);
   </script>
-  {{ end }}
+  {{ end }}  
 
   {{ if .Site.Params.disableDefaultJsScripts }}
   {{ if not .Site.Params.hideColorSchemeToggle }}

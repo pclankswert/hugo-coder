@@ -19,7 +19,7 @@ series = ["Demonstração do Tema"]
 Se quiser usar o [Mermaid-JS](https://mermaid-js.github.io/mermaid/#/) em sua página.
 Use o [shortcode](https://gohugo.io/content-management/shortcodes/#readout) `mermaid` em seus conteúdos Markdown.
 
-{{<mermaid>}}
+```mermaid
 flowchart LR
 
     A --> B
@@ -30,14 +30,14 @@ flowchart LR
 
     D --> B
 
-{{</mermaid>}}
+```
 
-{{<mermaid>}}
+```mermaid
 sequenceDiagram
 participant Alice
 participant Bob
 Alice->>Bob: Hi Bob
 Bob->>Alice: Hi Alice
-{{</mermaid>}}
+```
 
 Entro mais exemplos na página do [Mermaid-JS](https://mermaid-js.github.io/mermaid/#/).
